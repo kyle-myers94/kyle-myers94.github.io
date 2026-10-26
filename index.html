@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kyle Myers</title>
+<meta name="description" content="Performance marketing strategist who builds the software behind the work. Ecommerce paid media, product feeds, attribution, and the tools that run them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF8;
+  --ink:#1A1C1B;
+  --pine:#0C2B24;
+  --pine-deep:#071C17;
+  --moss:#5B6A63;
+  --signal:#2563EB;
+  --signal-quiet:#E8EEFC;
+  --rule:#DFDBD3;
+  --rule-dark:#1E453B;
+
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'Source Serif 4',Georgia,serif;
+
+  --measure:66ch;
+  --gut:clamp(20px,5vw,72px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E100F; --ink:#EDEBE6; --moss:#96A099;
+    --rule:#262A28; --rule-dark:#26473E;
+    --signal:#7BA1FF; --signal-quiet:#131C2E;
+    --pine:#0A241E; --pine-deep:#061713;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E100F; --ink:#EDEBE6; --moss:#96A099;
+  --rule:#262A28; --rule-dark:#26473E;
+  --signal:#7BA1FF; --signal-quiet:#131C2E;
+  --pine:#0A241E; --pine-deep:#061713;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.65;
+  -webkit-font-smoothing:antialiased; font-optical-sizing:auto;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal); outline-offset:3px; border-radius:2px}
+
+.shell{max-width:1140px;margin:0 auto;padding:0 var(--gut)}
+.narrow{max-width:var(--measure)}
+
+/* ---------- type ---------- */
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;margin:0;letter-spacing:-0.025em;line-height:1.05}
+h1{font-size:clamp(2.6rem,6.6vw,5rem);line-height:0.99;letter-spacing:-0.04em}
+h2{font-size:clamp(1.7rem,3.4vw,2.7rem);letter-spacing:-0.03em}
+h3{font-size:clamp(1.2rem,2vw,1.5rem);letter-spacing:-0.02em}
+h4{font-size:1.02rem;font-weight:600;letter-spacing:-0.005em}
+p{margin:0 0 1.05em}
+.lede{font-size:clamp(1.12rem,1.8vw,1.32rem);line-height:1.55;color:var(--ink)}
+.quiet{color:var(--moss)}
+.sm{font-size:0.9rem;line-height:1.55}
+em{font-style:italic}
+strong{font-weight:600}
+.num{font-family:var(--display);font-weight:700;letter-spacing:-0.03em;font-variant-numeric:tabular-nums}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--rule)}
+.bar .shell{display:flex;align-items:center;justify-content:space-between;height:58px}
+.mark{font-family:var(--display);font-weight:700;font-size:0.98rem;letter-spacing:-0.02em;text-decoration:none}
+.mark span{color:var(--moss);font-weight:400}
+.barlinks{display:flex;gap:22px;font-family:var(--display);font-size:0.86rem;font-weight:500}
+.barlinks a{text-decoration:none;color:var(--moss);padding:4px 0;border-bottom:1.5px solid transparent}
+.barlinks a:hover{color:var(--ink);border-bottom-color:var(--signal)}
+@media(max-width:620px){.barlinks a:nth-child(1){display:none}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--pine);color:#F2F5F3;padding:clamp(64px,11vw,132px) 0 clamp(52px,8vw,92px)}
+.hero h1{color:#FBFDFC;max-width:15ch}
+.hero .rule{width:64px;height:3px;background:var(--signal);margin:30px 0 26px}
+.hero p{color:#BFCFC8;max-width:54ch;font-size:clamp(1.08rem,1.7vw,1.24rem);line-height:1.58}
+.hero .proof{
+  margin-top:clamp(36px,5vw,58px);border-top:1px solid var(--rule-dark);
+  padding-top:26px;display:grid;gap:26px;
+}
+@media(min-width:760px){.hero .proof{grid-template-columns:repeat(3,minmax(0,1fr));gap:34px}}
+.pf .n{font-family:var(--display);font-weight:700;font-size:clamp(1.55rem,2.8vw,2rem);color:#FBFDFC;letter-spacing:-0.03em;font-variant-numeric:tabular-nums}
+.pf .n b{color:var(--signal);font-weight:700}
+.pf p{margin:5px 0 0;font-size:0.94rem;line-height:1.5;color:#9FB5AC}
+
+/* ---------- sections ---------- */
+section{padding:clamp(54px,8vw,96px) 0}
+.sechead{display:flex;align-items:baseline;gap:18px;margin-bottom:30px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.sechead h2{flex:0 0 auto}
+.sechead .note{font-family:var(--display);font-size:0.82rem;font-weight:500;color:var(--moss);margin-left:auto;text-align:right}
+@media(max-width:620px){.sechead{flex-wrap:wrap;gap:8px}.sechead .note{margin-left:0;text-align:left;flex-basis:100%}}
+
+/* ---------- build index ---------- */
+.builds{border-top:1px solid var(--rule)}
+.build{
+  display:block;text-decoration:none;color:inherit;
+  border-bottom:1px solid var(--rule);padding:26px 0;
+  display:grid;gap:8px;
+  transition:background 180ms ease, padding 180ms ease;
+}
+@media(min-width:840px){
+  .build{grid-template-columns:minmax(0,1fr) 300px;gap:10px 44px;align-items:start}
+  .build .meta{grid-row:1/3;grid-column:2;padding-top:5px}
+}
+.build:hover{background:var(--signal-quiet);padding-left:14px;padding-right:14px}
+.build h3{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.build h3 .kind{font-family:var(--display);font-size:0.74rem;font-weight:600;color:var(--signal);letter-spacing:0.01em;border:1px solid currentColor;border-radius:3px;padding:2px 7px;position:relative;top:-2px}
+.build p{margin:0;max-width:60ch;color:var(--moss);font-size:1.01rem;line-height:1.58}
+.build .meta{font-family:var(--display);font-size:0.83rem;color:var(--moss);line-height:1.7}
+.build .meta div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dotted var(--rule);padding:3px 0}
+.build .meta div b{font-weight:500;color:var(--ink);text-align:right}
+
+/* ---------- results ---------- */
+.results{display:grid;gap:0;border-top:1px solid var(--rule)}
+.res{border-bottom:1px solid var(--rule);padding:24px 0;display:grid;gap:10px}
+@media(min-width:840px){.res{grid-template-columns:220px minmax(0,1fr);gap:44px;align-items:baseline}}
+.res .headline{font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:-0.025em;line-height:1.2}
+.res .headline b{color:var(--signal)}
+.res p{margin:0;color:var(--moss);max-width:62ch}
+.res .who{font-size:0.86rem;color:var(--moss);font-family:var(--display);margin-top:6px}
+
+/* ---------- about ---------- */
+.about{background:var(--pine-deep);color:#E8EFEB}
+.about h2{color:#FBFDFC}
+.about .sechead{border-bottom-color:var(--rule-dark)}
+.about .sechead .note{color:#8BA298}
+.aboutgrid{display:grid;gap:34px}
+@media(min-width:860px){.aboutgrid{grid-template-columns:minmax(0,1fr) 260px;gap:58px;align-items:start}}
+.about p{color:#C3D2CB;max-width:62ch}
+.about strong{color:#FBFDFC;font-weight:600}
+.portrait{border:1px solid var(--rule-dark);background:#0A241E;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait .ph{font-family:var(--display);font-size:0.8rem;color:#6F8880;line-height:1.6}
+.facts{margin-top:22px;font-family:var(--display);font-size:0.86rem;color:#9FB5AC}
+.facts div{display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid var(--rule-dark);padding:7px 0}
+.facts div b{font-weight:500;color:#E8EFEB;text-align:right}
+
+/* ---------- contact ---------- */
+.contact{border-top:1px solid var(--rule)}
+.contact .lede{max-width:48ch}
+.clinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.clinks a{
+  font-family:var(--display);font-weight:500;font-size:0.95rem;text-decoration:none;
+  border:1.5px solid var(--ink);padding:11px 20px;border-radius:3px;
+  transition:background 160ms ease,color 160ms ease,border-color 160ms ease;
+}
+.clinks a:hover{background:var(--signal);border-color:var(--signal);color:#fff}
+
+footer{border-top:1px solid var(--rule);padding:26px 0 46px;font-size:0.84rem;color:var(--moss);font-family:var(--display)}
+footer .shell{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* ---------- case study ---------- */
+.cshead{background:var(--pine);color:#F2F5F3;padding:clamp(46px,7vw,86px) 0 clamp(34px,5vw,56px)}
+.csback{font-family:var(--display);font-size:0.86rem;font-weight:500;color:#9FB5AC;text-decoration:none;display:inline-block;margin-bottom:26px;border-bottom:1.5px solid transparent;padding-bottom:2px}
+.csback:hover{color:#FBFDFC;border-bottom-color:var(--signal)}
+.cshead h1{font-size:clamp(2.1rem,5vw,3.6rem);color:#FBFDFC;max-width:18ch}
+.cshead .sub{color:#BFCFC8;font-size:clamp(1.04rem,1.6vw,1.18rem);margin-top:18px;max-width:56ch;line-height:1.55}
+.spec{margin-top:clamp(30px,4vw,46px);border-top:1px solid var(--rule-dark);padding-top:22px;
+  display:grid;gap:16px;font-family:var(--display);font-size:0.86rem}
+@media(min-width:720px){.spec{grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}}
+.spec div span{display:block;color:#7F9890;margin-bottom:3px;font-size:0.78rem}
+.spec div b{font-weight:500;color:#E8EFEB;line-height:1.45;display:block}
+
+.csbody{padding:clamp(48px,7vw,84px) 0 0}
+.block{margin-bottom:clamp(42px,6vw,68px)}
+.block > h2{margin-bottom:16px}
+.block .narrow p:last-child{margin-bottom:0}
+
+/* architecture flow: numbered because it IS a sequence */
+.flow{border-top:1px solid var(--rule);margin-top:8px}
+.flowstep{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;border-bottom:1px solid var(--rule);padding:16px 0;align-items:start}
+.flowstep .i{font-family:var(--display);font-weight:700;font-size:0.82rem;color:var(--signal);width:26px;padding-top:3px;font-variant-numeric:tabular-nums}
+.flowstep h4{margin-bottom:3px}
+.flowstep p{margin:0;color:var(--moss);font-size:0.98rem;max-width:58ch}
+.flowstep code{font-family:var(--display);font-size:0.86em;background:var(--signal-quiet);color:var(--signal);padding:1px 5px;border-radius:3px;font-weight:500}
+
+.outcome{border-left:3px solid var(--signal);padding:4px 0 4px 22px;margin:8px 0 0}
+.outcome .big{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-0.03em;line-height:1.15;margin-bottom:10px}
+.outcome p{margin:0;color:var(--moss);max-width:58ch}
+
+.honest{background:var(--signal-quiet);padding:24px 26px;border-radius:4px}
+.honest h4{margin-bottom:8px}
+.honest p{margin:0;color:var(--ink);max-width:60ch}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .honest p{color:#D5DCE9}}
+:root[data-theme="dark"] .honest p{color:#D5DCE9}
+
+.scrub{font-size:0.86rem;color:var(--moss);font-style:italic;border-top:1px solid var(--rule);padding-top:14px;margin-top:8px}
+
+.nextcs{border-top:1px solid var(--rule);margin-top:clamp(40px,6vw,70px);padding:30px 0 clamp(50px,7vw,80px)}
+.nextcs a{text-decoration:none;display:block}
+.nextcs .k{font-family:var(--display);font-size:0.8rem;color:var(--moss);margin-bottom:6px}
+.nextcs h3{transition:color 160ms ease}
+.nextcs a:hover h3{color:var(--signal)}
+
+/* ---------- motion ---------- */
+.rise{opacity:0;transform:translateY(10px)}
+.rise.in{opacity:1;transform:none;transition:opacity 420ms ease,transform 420ms cubic-bezier(.2,.7,.3,1)}
+@media (prefers-reduced-motion: reduce){
+  .rise,.rise.in{opacity:1;transform:none;transition:none}
+  *{scroll-behavior:auto !important}
+  .build,.clinks a,.nextcs h3{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="shell">
+    <a class="mark" href="#/">Kyle Myers <span>/ Miamisburg, Ohio</span></a>
+    <nav class="barlinks">
+      <a href="#/#work">Work</a>
+      <a href="#/#results">Results</a>
+      <a href="#/#about">About</a>
+    </nav>
+  </div>
+</div>
+
+<main id="app"></main>
+
+<footer>
+  <div class="shell">
+    <span>Kyle Myers</span>
+    <span>Client names withheld. Figures are real.</span>
+  </div>
+</footer>
+
+<script>
+/* ============================ CONTENT ============================ */
+
+const BUILDS = [
+  {
+    slug:"ledgermetrics",
+    name:"LedgerMetrics",
+    kind:"Google Workspace add-on",
+    blurb:"The agency paid $40,000 a year for a reporting connector that could not read the one data source the strategy actually ran on. I wrote the replacement.",
+    meta:{ "Stack":"Apps Script, REST", "Built":"3 months, 2026", "Status":"Company-wide" },
+    sub:"Replacing a $40,000 a year reporting vendor with an add-on that reads the platform the vendor could not.",
+    spec:{ "Type":"Google Workspace add-on", "Stack":"Apps Script, JavaScript, REST API, GitHub", "Shipped":"July 2026, full rollout August 1", "Distribution":"Private Google Workspace Marketplace" },
+    problem:[
+      "Every client report at the agency was assembled from two places that disagreed with each other. Ad platform numbers came out of a paid connector at $40,000 a year. The numbers the strategy team actually made decisions on came out of the agency's own attribution platform, which the connector had no integration for.",
+      "So the reporting workflow was: pull what the connector could reach, then open a second system, then reconcile by hand. Every account. Every month. The two sets of numbers were built on different attribution, so the reconciling was judgment work, not clerical work, and it fell on the people whose time was worth the most.",
+      "Nobody was going to fix this. The connector vendor had no reason to build an integration for a platform with one customer, and the agency had no engineering team to build one for itself."
+    ],
+    built:[
+      "A Google Workspace add-on that pulls attribution data directly into the sheet where the report already lives. A strategist opens a client's reporting workbook, picks a date range and a set of accounts from a sidebar, and the data arrives in the sheet with the same attribution model the strategy is built on.",
+      "The part that made it usable rather than clever was auto-discovery. The add-on reads which accounts and campaigns exist rather than making anyone configure them, so a new client is set up by opening a sheet instead of by editing a config."
+    ],
+    flow:[
+      ["Sidebar UI","A Google Sheets add-on sidebar built with Apps Script HTML service. Date range, account selection, and metric set. State persists per workbook."],
+      ["Auto-discovery","On open, the add-on queries the attribution API for the accounts and campaigns available to that user and populates the selectors, so nothing is hardcoded per client."],
+      ["Authenticated pull","Requests go to the attribution platform's REST API with credentials held in <code>PropertiesService</code>, never in the sheet or the source."],
+      ["Shaping and write","Responses are normalized into a flat table and written to named ranges in one batched <code>setValues</code> call rather than cell by cell, which is the difference between a two second pull and a two minute one."],
+      ["Scheduled refresh","Time-driven triggers re-run saved pulls on a schedule, so a workbook is current before anyone opens it."],
+      ["Recurring pulls","A scheduler layer lets a user save a pull definition and have it repeat, which is what turned the tool from a fetcher into infrastructure."],
+      ["Anchored targets","Each recurring pull is pinned to its block of data with hidden Developer Metadata on the block's row and column. When someone inserts or deletes rows or columns in a client sheet, the pull follows its data instead of writing to a cell the data has left. If an anchor is ever lost, a date guard stops the run before anything is written."],
+      ["Configuration, not code","Client and team settings live in Script Properties alongside the credentials, so standing the add-on up for another team is a configuration change rather than a code change."]
+    ],
+    outcome:{
+      big:"A $40,000 a year contract retired, and company-wide adoption inside two weeks.",
+      body:"Soft launched in July 2026 and fully integrated across the agency on August 1. It is now the default way reports get built, and it does the thing the paid vendor never did, which is read the attribution platform the agency's own strategy depends on."
+    },
+    honest:{
+      h:"What I would do differently",
+      p:"I built this for three months in the Apps Script editor with no version control and no tests, and it went company-wide in that state. That caught up with me on October 20, when a column change in a client's reporting sheet left a recurring pull pointed one column off its data. It read revenue figures as dates and backfilled 20,746 rows of junk going back to 1970. So I went back and did what should have come first: a date guard that stops a run when the data under it does not look like dates, a run lock so two scheduled pulls cannot overlap, and redaction that keeps sensitive values out of the logs. Then I moved the code into a private GitHub repository with a test suite and fixed the root cause, so every recurring pull is now anchored to its data and follows it when rows or columns move. Every change now goes through a pull request and the tests before it ships. None of that was hard. It was just easy to skip while nothing had broken, and retrofitting it onto a tool people use every day is slower than starting with it. Production deploys stay a manual step on purpose, and that part I would keep."
+    }
+  },
+
+  {
+    slug:"highlighted",
+    name:"Highlighted",
+    kind:"React application",
+    blurb:"Google's AI shopping surfaces read product data differently than classic Shopping does. Client catalogs had the relevant fields empty, and no tool generated them at catalog scale.",
+    meta:{ "Stack":"React, GMC spec", "Scale":"10,000+ SKUs", "Status":"Live on client catalogs" },
+    sub:"Generating the product data attributes that decide whether a catalog shows up in AI shopping results.",
+    spec:{ "Type":"React application", "Stack":"React, JavaScript, Merchant Center feed spec", "Scale":"Over 10,000 SKUs processed", "Status":"Deployed live, second build requested" },
+    problem:[
+      "Google's AI-driven shopping surfaces do not read a product feed the way classic Shopping did. They lean on supplemental attributes, <em>product_highlight</em> and <em>product_detail</em> among them, that describe a product in structured, machine-legible terms rather than leaving it to a title and a description.",
+      "Across the catalogs I was responsible for, those fields were empty. Not wrong, empty. Which meant thousands of products were being interpreted from a title string while competitors handed the same surfaces a structured answer.",
+      "Filling them by hand is not a real option at ten thousand products, and the feed platforms did not generate them. So the choice was to leave the fields blank and hope, or build something."
+    ],
+    built:[
+      "A React application that takes existing feed data, derives supplemental attributes for each product, validates them against the Merchant Center specification, and outputs a supplemental feed ready to upload.",
+      "The generation is the interesting half, but the validation is the half that made it safe to run on a live catalog. A malformed supplemental feed does not fail loudly, it quietly gets ignored or, worse, gets products disapproved, and finding out a week later across ten thousand items is not a recoverable position."
+    ],
+    flow:[
+      ["Feed ingest","Reads the client's existing primary feed and normalizes fields across the variations different platforms export."],
+      ["Attribute derivation","For each product, derives <code>product_highlight</code> and <code>product_detail</code> values from the attributes already present, so output stays grounded in the merchant's own data rather than invented."],
+      ["Spec validation","Every generated value is checked against Merchant Center's published constraints for that attribute: character limits, count limits, and formatting, before it can leave the tool."],
+      ["Supplemental output","Emits a supplemental feed keyed on item id, so it layers onto the primary feed without touching it and can be rolled back by removing one file."],
+      ["Review pass","Output is reviewed before upload. The tool is a generator with a human gate, not an automatic publisher, which matters when the thing being edited is a live revenue channel."]
+    ],
+    outcome:{
+      big:"One client channel's platform-reported revenue tripled week over week after deployment, with no other changes made.",
+      body:"Over 10,000 SKUs processed. The client asked for a second, branded build for a different property, which is the only endorsement that actually means anything."
+    },
+    honest:{
+      h:"What I would do differently",
+      p:"I built generation first and validation second, which meant the first real run produced output I could not safely upload and had to be reworked. On anything touching a live catalog the constraint layer should exist before the thing that produces the content, because the constraints are the part you cannot negotiate with."
+    }
+  },
+
+  {
+    slug:"loose-ends",
+    name:"Loose Ends",
+    kind:"Multi-source agent system",
+    blurb:"I do not have a prioritization problem. I have a capture problem. Every tool built for this loses because it asks you to type the thing in.",
+    meta:{ "Stack":"Scheduled agents", "Sources":"Gmail, iMessage, Reminders", "Status":"Running since Sept 2026" },
+    sub:"Three unattended agents that read what I already wrote and surface what I already promised.",
+    spec:{ "Type":"Multi-source agent system", "Sources":"Gmail, iMessage, Apple Reminders", "Schedule":"Three unattended runs daily", "Manual entry":"None" },
+    problem:[
+      "The commitments that go missing are not the ones on a list. They are the ones made in a sentence at the end of an email, or in a text on a Saturday, or halfway through a call. By the time they would have gone on a list, they have already been forgotten.",
+      "Every task tool I had tried failed the same way. Each one was a novelty that required me to go somewhere I did not already go and type in something I had already said. The tools were fine. The handoff was the defect.",
+      "So the requirement was narrow and non-negotiable: zero manual entry. If the system needs me to tell it something, it has already failed."
+    ],
+    built:[
+      "Three scheduled agents, running morning, late afternoon, and night, that read the places I already write: email, messages, and my own reminders. They extract commitments, score their confidence, drop anything already acknowledged, and surface what is left.",
+      "Two design decisions did most of the work. First, delivery goes to a native Apple Reminders list plus a three-line text, because a full list read as a wall of text I would learn to ignore. Second, an item does not expire quietly. It keeps surfacing until I explicitly acknowledge it, because silent expiry is how the previous attempts failed without telling me."
+    ],
+    flow:[
+      ["Source read","Each run reads Gmail, iMessage, and Apple Reminders across a rolling window. Read-only access, scoped deliberately."],
+      ["Extraction","Language that signals a commitment gets pulled out with the surrounding context, so an item arrives with enough to be recognizable rather than as a bare fragment."],
+      ["Confidence scoring","Each candidate gets a confidence score. Below threshold it is dropped rather than shown, because a nag system that cries wolf gets muted within a week."],
+      ["Dedupe against acknowledged","Anything previously acknowledged is suppressed, so the same item does not resurface after it is handled."],
+      ["Two-channel delivery","Survivors land in an Apple Reminders list, plus a three-line text ping at 9:00am, 4:30pm, and 10:00pm."],
+      ["Explicit close","An item stays live until acknowledged. Nothing disappears on its own."]
+    ],
+    outcome:{
+      big:"96 commitments captured in seven weeks, 86 closed, with no manual entry.",
+      body:"It is the only system of this kind I have built that survived past the first week, and the reason is the constraint rather than the code: it never asks me to do the thing I was never going to do."
+    },
+    honest:{
+      h:"What I would do differently",
+      p:"The schedule assumed the machine would be awake, and it was not always. When the Mac slept through a run time, the run fired late, and a 9:00am nudge that shows up at lunch is a different product than the one I designed. The fix was a scheduled system wake ahead of each run. The scope freeze earned its keep: I held off changing anything until real data existed, and seven weeks of it is what surfaced the problem. Next time I would design for the host being absent from the first run, not just the user."
+    }
+  },
+
+  {
+    slug:"disapproval-monitor",
+    name:"Disapproval Monitor",
+    kind:"Agency-wide alerting",
+    blurb:"A product feed can lose most of its approved items in a day because of a site change nobody at the agency made. The first sign should not be the revenue report.",
+    meta:{ "Stack":"Google Ads Scripts", "Coverage":"Every agency client", "Status":"Live since Oct 2026" },
+    sub:"A weekday check across every client's Merchant Center that tells the right two people when disapprovals jump.",
+    spec:{ "Type":"Scheduled alerting script", "Runs in":"Google Ads, at the manager account level", "Cadence":"Weekdays, 8 to 9am", "Recipients":"Each client's strategy director and account manager" },
+    problem:[
+      "Shopping campaigns run on the product feed, and the feed can break from the client's side. A site release, a template change, a third-party script: any of them can push a large share of a catalog into disapproval overnight, and the campaigns keep running on whatever is left.",
+      "Merchant Center reports the disapprovals, but nobody opens Merchant Center every morning for every client. In practice the first signal tends to be a drop in revenue, which is late and does not say why."
+    ],
+    built:[
+      "A script that runs every weekday morning across the agency's client accounts, compares each account's disapproved item count to the prior day, and alerts when the jump is large enough to matter.",
+      "Alerts go to the people who own that client, read from the client roster the agency already keeps. I deliberately left myself off the alerts and skipped a daily digest, so the only thing that arrives is the thing that needs action."
+    ],
+    flow:[
+      ["Scheduled run","Runs weekday mornings inside Google Ads, so it does not depend on anyone's laptop being awake."],
+      ["Client roster","Reads a sheet mapping each client to the account to monitor and its strategy director and account manager. Only accounts on the roster are checked, since not every linked Merchant Center account is still active."],
+      ["Day-over-day compare","Pulls each account's disapproved item count and compares it to the previous day."],
+      ["Threshold","Only a large uptick triggers an alert. Normal daily churn in disapprovals stays quiet."],
+      ["Routed alert","The alert goes by email to that client's strategy director and account manager, and to no one else."],
+      ["Staged rollout","Tested on my own accounts first, with every alert going only to me, before it went live for the full client list."]
+    ],
+    outcome:{
+      big:"Live across the agency's full client list since October 9, 2026.",
+      body:"It has already flagged a few real feed issues, each one sent by email to the people responsible for that client, without anyone having to go looking."
+    },
+    honest:{
+      h:"What I would do differently",
+      p:"My first version used Apps Script and the Merchant API, which required verifying the agency's own website in Merchant Center while that site was going through changes. Moving to a Google Ads script at the manager account removed that dependency entirely. I picked the API before checking the access it needed, and the access turned out to be the real constraint. It also runs inside the ad platform rather than on my machine, which is a lesson the daily scorecard taught me."
+    }
+  },
+
+  {
+    slug:"daily-scorecard",
+    name:"Daily Scorecard",
+    kind:"Client-facing automation",
+    blurb:"A client asked for daily performance in Slack. Not a link to a dashboard. The number, in the channel, where the conversation already was.",
+    meta:{ "Stack":"API, render, review", "Cadence":"Daily", "Status":"Reviewed, sent daily" },
+    sub:"Fetch, render, review, send. A daily performance image in a client's Slack, with a human check before it goes out.",
+    spec:{ "Type":"Client reporting pipeline", "Stack":"Attribution API, HTML render", "Cadence":"Daily", "Requested by":"The client" },
+    problem:[
+      "A client wanted their paid channel performance every morning: spend, sessions, clicks, compared against the same day last year, adjusted for the day of week. Reasonable ask.",
+      "The part that mattered was the delivery. They did not want a link. A link is a decision to click, and a decision to click on a Tuesday morning is a decision not taken. They wanted the numbers visible in the Slack channel where their team already talked about performance.",
+      "Which turned a reporting problem into a delivery problem, and the delivery problem turned out to be the hard one."
+    ],
+    built:[
+      "A pipeline that pulls the numbers, renders them as a designed scorecard image, and puts that image directly into the client's Slack channel. No link, no dashboard, no login.",
+      "The delivery step is where I changed my mind. The first version posted on its own, using computer-use control of the signed-in Slack desktop app, because the available Slack integration had no file upload. It worked. But a number that lands in a client's channel is a number the client acts on, and I wanted to read it before they did and add the context a template cannot know. So the pipeline now stops at a finished image, and I send it after a review."
+    ],
+    flow:[
+      ["Data pull","Requests spend, sessions, and clicks by channel from the attribution API, for yesterday and the day-adjusted equivalent a year prior."],
+      ["Layout and render","The figures are composed into a designed scorecard, month-to-date table included, and rendered to an image rather than left as a table."],
+      ["Review","I check the figures and add whatever context the numbers need before anything goes out."],
+      ["Delivery","The finished image is posted into the client's Slack channel, every day."]
+    ],
+    outcome:{
+      big:"Sent every day, in the client's channel, with a human check on every one.",
+      body:"It was requested by the client rather than proposed to them, which is a better signal about the problem than anything I could say about the solution. The automation was never the point. The number arriving where the conversation already happens was."
+    },
+    honest:{
+      h:"What I would do differently",
+      p:"I automated delivery before I had decided whether delivery should be automated. I spent real effort on unattended posting, including a weekend approval path through a phone-initiated session that turned out to be impossible because those sessions cannot be granted screen control. Then I removed the unattended step anyway, because I wanted a review before anything reached the client. Next time I would decide where the human belongs in the loop first, and automate everything up to that point."
+    }
+  },
+
+  {
+    slug:"agency-automations",
+    name:"Agency Automations",
+    kind:"Three scheduled jobs",
+    blurb:"Three unattended jobs that hold the parts of agency operations that depend on somebody remembering.",
+    meta:{ "Stack":"Gmail, Monday.com, Fathom", "Running":"Since June 2026", "Recovers":"~175 hours a year" },
+    sub:"Email auditing, progress digests, and call routing, running on a schedule with nobody watching.",
+    spec:{ "Type":"Three scheduled automations", "Systems":"Gmail, Monday.com, Fathom", "Cadence":"Twice weekly and nightly", "Running since":"June 2026, with regular maintenance checks" },
+    problem:[
+      "Agency work fails in the gaps between systems, not inside them. A client email goes eleven days without a reply because it was read on a phone and never actioned. A commitment made on a call never becomes a task because the call summary lives in one tool and the task board lives in another. Account status is known by whoever happens to be asked.",
+      "None of these are hard problems. They are all the same problem: something true in one system needs to be true in another, and the bridge is a person remembering. People are bad bridges. They are especially bad bridges in Q4."
+    ],
+    built:[
+      "<strong>Client email auditor.</strong> Scans Gmail twice a week for client threads that have gone quiet and for commitment language in my own sent mail. Flags what is stale and what I said I would do.",
+      "<strong>Account manager progress digest.</strong> Reads Monday.com boards twice a week and produces a digest of where each account actually stands, so status is a thing that arrives rather than a thing that gets asked for.",
+      "<strong>Call-to-board pipeline.</strong> Runs nightly, reads meeting summaries and action items out of Fathom, and routes each to the correct client board."
+    ],
+    flow:[
+      ["Client email auditor","Tuesday and Friday, 7:00am. Reads Gmail thread content across client addresses, not just subject lines, and flags stale threads plus commitment language in sent mail."],
+      ["Progress digest","Tuesday and Friday, 6:45am. Pulls Monday.com board state and composes a per-account status digest."],
+      ["Call routing","Nightly, 2:30am. Reads Fathom call summaries and action items and writes them to the matching client board."],
+      ["No human in the loop","All three run on schedule with no trigger, no approval, and no supervision. If they need me to start them, they do not solve the problem they exist for."]
+    ],
+    outcome:{
+      big:"Running since June, and roughly 175 hours a year back.",
+      body:"The time is real but it is the second-order effect that matters: the failure mode these were built against is a client thread going quiet, and that has stopped being something I find out about late. I also check in on all three on a regular schedule, the way I would any production system: confirm each one still runs, still reads the right inboxes and boards, and still lands where it should. Those check-ins are where small drift, like a board that has been replaced, gets caught before it turns into a missed task."
+    },
+    honest:{
+      h:"What I would do differently",
+      p:"I built these as three separate jobs, which was right for shipping and wrong for maintaining. They read overlapping sources with three separate extraction paths, so a change to how commitments are recognized has to be made three times. The next version consolidates the reading layer and leaves only the delivery separate."
+    }
+  }
+];
+
+const RESULTS = [
+  {
+    head:"Revenue up <b>9%</b> on <b>46%</b> less ad spend",
+    who:"Client, storage and equipment retailer",
+    body:"Net profit on the account improved by over 1,100%. The account had been buying volume; it was rebuilt around what was actually profitable, through feed restructuring and campaign consolidation."
+  },
+  {
+    head:"<b>$1.4M</b> in net profit held through a falling year",
+    who:"Client, craft and hobby retailer",
+    body:"September is their largest month of the year. Net profit came in level against the prior September while top-line revenue fell $500,000 and ad spend ran $190,000 lighter. Defending profit through a revenue decline is a different exercise than growing it in a good year."
+  },
+  {
+    head:"A lost client returned, and <b>brought a second brand</b>",
+    who:"Client, team sports retailer",
+    body:"The account left following an acquisition. Six months later they came back, and brought another brand in the portfolio with them. Combined net profit grew 11%."
+  },
+  {
+    head:"<b>$70M to $94M</b> in annual revenue over three years",
+    who:"Client, cycling retailer",
+    body:"Paid acquisition across Google, Microsoft, Meta, and YouTube through a period of category-wide contraction, with budgets peaking above $3M in a single month."
+  }
+];
+
+/* ============================ RENDER ============================ */
+
+const app = document.getElementById('app');
+const esc = s => String(s);
+
+function buildIndexHTML(){
+  return BUILDS.map(b=>`
+    <a class="build rise" href="#/${b.slug}">
+      <h3>${b.name} <span class="kind">${b.kind}</span></h3>
+      <p>${b.blurb}</p>
+      <div class="meta">
+        ${Object.entries(b.meta).map(([k,v])=>`<div>${k}<b>${v}</b></div>`).join('')}
+      </div>
+    </a>`).join('');
+}
+
+function home(){
+  return `
+  <div class="hero">
+    <div class="shell">
+      <h1>I run $8.9M a year in ad spend. I also write the software that runs it.</h1>
+      <div class="rule"></div>
+      <p>Eight years in ecommerce performance marketing, currently Strategy Director across six retail clients. Somewhere in there I stopped waiting for the tools to exist.</p>
+      <div class="proof">
+        <div class="pf">
+          <div class="n"><b>$40,000</b> a year</div>
+          <p>Reporting vendor contract retired and replaced with an add-on I built. Company-wide in two weeks.</p>
+        </div>
+        <div class="pf">
+          <div class="n"><b>10,000+</b> SKUs</div>
+          <p>Product data generated for Google's AI shopping surfaces. One channel's platform-reported revenue tripled the week after it shipped.</p>
+        </div>
+        <div class="pf">
+          <div class="n"><b>6</b> in daily use</div>
+          <p>Tools and agent systems in use, for clients and for the agency.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="shell">
+      <div class="sechead">
+        <h2>What I have built</h2>
+        <div class="note">Each one exists because something was broken or expensive<br>and nobody else was going to fix it.</div>
+      </div>
+      <div class="builds">${buildIndexHTML()}</div>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="shell">
+      <div class="sechead">
+        <h2>What the accounts did</h2>
+        <div class="note">Measured in client net profit,<br>not platform-reported return.</div>
+      </div>
+      <div class="results">
+        ${RESULTS.map(r=>`
+          <div class="res rise">
+            <div>
+              <div class="headline">${r.head}</div>
+              <div class="who">${r.who}</div>
+            </div>
+            <p>${r.body}</p>
+          </div>`).join('')}
+      </div>
+      <p class="scrub">Client names are withheld under agency confidentiality. Figures are unmodified and come from reconciled revenue, not modeled attribution.</p>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="shell">
+      <div class="sechead"><h2>About</h2><div class="note">Miamisburg, Ohio. Remote since 2020.</div></div>
+      <div class="aboutgrid">
+        <div>
+          <p class="lede" style="color:#DCE6E1">Most of what I have built started the same way. Something was broken or expensive, it had been that way for a while, and it was clear nobody was going to fix it.</p>
+          <p>LedgerMetrics exists because a $40,000 a year contract was doing a worse job than a thing I could write. Highlighted exists because thousands of products were invisible to a surface that was about to matter and no tool filled the gap. Loose Ends exists because I forget things, and every product built for that problem asks you to remember to use it.</p>
+          <p>The marketing came first. I have spent eight years running paid acquisition for ecommerce retailers, and I am currently Strategy Director at a performance marketing agency, responsible for strategy across six clients, two account managers, and $8.9M in annual media. That work is where the problems come from. I am not a developer who learned marketing. I am the person who knew exactly which thing was broken and decided to stop waiting.</p>
+          <p>My degree is in Communication Technology and New Media from <strong>Ohio State</strong>, specialized in Human-Computer Interaction, which is a longer way of saying that how people and systems meet has been the interesting question since before it was the job.</p>
+          <p>Outside of work I am offensive coordinator for a fourth grade football team and sit on the board as game day coordinator. Same instinct, different Saturday.</p>
+        </div>
+        <div>
+          <div class="portrait">
+            <div class="ph">Portrait<br>to be added</div>
+          </div>
+          <div class="facts">
+            <div>Current<b>Strategy Director</b></div>
+            <div>Managed spend<b>$8.9M / year</b></div>
+            <div>Clients<b>6</b></div>
+            <div>Team<b>2 account managers</b></div>
+            <div>Working in<b>Python, JS, React,<br>Apps Script</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="shell">
+      <h2>Get in touch</h2>
+      <p class="lede quiet" style="margin-top:14px">I am open to solutions engineering, implementation, and technical account roles, and to in-house paid media leadership.</p>
+      <div class="clinks">
+        <a href="mailto:myerskd62@gmail.com">myerskd62@gmail.com</a>
+        <a href="https://www.linkedin.com/in/kyledavidmyers/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>`;
+}
+
+function caseStudy(b){
+  const i = BUILDS.findIndex(x=>x.slug===b.slug);
+  const next = BUILDS[(i+1)%BUILDS.length];
+  return `
+  <div class="cshead">
+    <div class="shell">
+      <a class="csback" href="#/">Back to all work</a>
+      <h1>${b.name}</h1>
+      <p class="sub">${b.sub}</p>
+      <div class="spec">
+        ${Object.entries(b.spec).map(([k,v])=>`<div><span>${k}</span><b>${v}</b></div>`).join('')}
+      </div>
+    </div>
+  </div>
+
+  <div class="csbody">
+    <div class="shell">
+      <div class="block rise">
+        <h2>The problem</h2>
+        <div class="narrow">${b.problem.map(p=>`<p>${p}</p>`).join('')}</div>
+      </div>
+
+      <div class="block rise">
+        <h2>What I built</h2>
+        <div class="narrow">${b.built.map(p=>`<p>${p}</p>`).join('')}</div>
+      </div>
+
+      <div class="block rise">
+        <h2>How it works</h2>
+        <div class="flow">
+          ${b.flow.map((f,n)=>`
+            <div class="flowstep">
+              <div class="i">${String(n+1).padStart(2,'0')}</div>
+              <div><h4>${f[0]}</h4><p>${f[1]}</p></div>
+            </div>`).join('')}
+        </div>
+      </div>
+
+      <div class="block rise">
+        <h2>What happened</h2>
+        <div class="outcome">
+          <div class="big">${b.outcome.big}</div>
+          <p>${b.outcome.body}</p>
+        </div>
+      </div>
+
+      <div class="block rise">
+        <div class="honest">
+          <h4>${b.honest.h}</h4>
+          <p>${b.honest.p}</p>
+        </div>
+      </div>
+
+      <div class="nextcs">
+        <a href="#/${next.slug}">
+          <div class="k">Next</div>
+          <h3>${next.name}</h3>
+        </a>
+      </div>
+    </div>
+  </div>`;
+}
+
+function reveal(){
+  const els = document.querySelectorAll('.rise');
+  if(!('IntersectionObserver' in window)){ els.forEach(e=>e.classList.add('in')); return; }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(e=>io.observe(e));
+}
+
+function route(){
+  const raw = location.hash.replace(/^#\/?/,'');
+  const [path, anchor] = raw.split('#');
+  const b = BUILDS.find(x=>x.slug===path);
+  app.innerHTML = b ? caseStudy(b) : home();
+  document.title = b ? `${b.name} | Kyle Myers` : 'Kyle Myers';
+  reveal();
+  if(anchor){
+    const t = document.getElementById(anchor);
+    if(t){ t.scrollIntoView({behavior:'auto',block:'start'}); return; }
+  }
+  window.scrollTo(0,0);
+}
+
+window.addEventListener('hashchange',route);
+route();
+</script>
+</body>
+</html>
