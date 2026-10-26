@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kyle Myers</title>
 <meta name="description" content="Performance marketing strategist who builds the software behind the work. Ecommerce paid media, product feeds, attribution, and the tools that run them.">
+<link rel="canonical" href="https://kyle-myers94.github.io/">
+<meta name="theme-color" content="#FBFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E100F" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kyle Myers">
+<meta property="og:title" content="Kyle Myers">
+<meta property="og:description" content="Performance marketing strategist who builds the software behind the work. Ecommerce paid media, product feeds, attribution, and the tools that run them.">
+<meta property="og:url" content="https://kyle-myers94.github.io/">
+<meta property="og:image" content="https://kyle-myers94.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kyle Myers. I run $8.9M a year in ad spend. I also write the software that runs it.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kyle Myers">
+<meta name="twitter:description" content="Performance marketing strategist who builds the software behind the work. Ecommerce paid media, product feeds, attribution, and the tools that run them.">
+<meta name="twitter:image" content="https://kyle-myers94.github.io/og-image.png">
+<meta name="twitter:image:alt" content="Kyle Myers. I run $8.9M a year in ad spend. I also write the software that runs it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -12,11 +31,11 @@
 :root{
   --paper:#FBFAF8;
   --ink:#1A1C1B;
-  --pine:#0C2B24;
+  --pine:#0B2821;
   --pine-deep:#071C17;
   --moss:#5B6A63;
   --signal:#2563EB;
-  --signal-quiet:#E8EEFC;
+  --signal-quiet:#ECF1FD;
   --rule:#DFDBD3;
   --rule-dark:#1E453B;
 
@@ -50,6 +69,9 @@ body{
 img{max-width:100%;display:block}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--signal); outline-offset:3px; border-radius:2px}
+[tabindex="-1"]:focus{outline:none}
+.skip{position:absolute;left:var(--gut);top:-100px;z-index:40;background:var(--ink);color:var(--paper);font-family:var(--display);font-weight:500;font-size:0.9rem;text-decoration:none;padding:10px 16px;border-radius:3px}
+.skip:focus{top:10px}
 
 .shell{max-width:1140px;margin:0 auto;padding:0 var(--gut)}
 .narrow{max-width:var(--measure)}
@@ -154,6 +176,8 @@ section{padding:clamp(54px,8vw,96px) 0}
   transition:background 160ms ease,color 160ms ease,border-color 160ms ease;
 }
 .clinks a:hover{background:var(--signal);border-color:var(--signal);color:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .clinks a:hover{color:var(--paper)}}
+:root[data-theme="dark"] .clinks a:hover{color:var(--paper)}
 
 footer{border-top:1px solid var(--rule);padding:26px 0 46px;font-size:0.84rem;color:var(--moss);font-family:var(--display)}
 footer .shell{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -213,6 +237,8 @@ footer .shell{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap
 </head>
 <body>
 
+<a class="skip" href="#app">Skip to content</a>
+
 <div class="bar">
   <div class="shell">
     <a class="mark" href="#/">Kyle Myers <span>/ Miamisburg, Ohio</span></a>
@@ -224,7 +250,7 @@ footer .shell{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap
   </div>
 </div>
 
-<main id="app"></main>
+<main id="app" tabindex="-1"></main>
 
 <footer>
   <div class="shell">
@@ -471,6 +497,9 @@ const RESULTS = [
 
 const app = document.getElementById('app');
 const esc = s => String(s);
+const SITE = 'https://kyle-myers94.github.io/';
+const DESC = document.querySelector('meta[name="description"]').content;
+const setMeta = (sel,v) => document.querySelectorAll(sel).forEach(m=>m.setAttribute('content',v));
 
 function buildIndexHTML(){
   return BUILDS.map(b=>`
@@ -550,7 +579,7 @@ function home(){
         </div>
         <div>
           <div class="portrait" style="padding:0">
-            <img src="kyle.jpg" alt="Kyle Myers" width="620" height="775" loading="lazy">
+            <img src="kyle.jpg" alt="Portrait of Kyle Myers" width="620" height="775" loading="lazy">
           </div>
           <div class="facts">
             <div>Current<b>Strategy Director</b></div>
@@ -653,16 +682,34 @@ function route(){
   const [path, anchor] = raw.split('#');
   const b = BUILDS.find(x=>x.slug===path);
   app.innerHTML = b ? caseStudy(b) : home();
-  document.title = b ? `${b.name} | Kyle Myers` : 'Kyle Myers';
+  const title = b ? `${b.name} | Kyle Myers` : 'Kyle Myers';
+  const desc = b ? b.sub.replace(/<[^>]+>/g,'') : DESC;
+  document.title = title;
+  setMeta('meta[name="description"],meta[property="og:description"],meta[name="twitter:description"]',desc);
+  setMeta('meta[property="og:title"],meta[name="twitter:title"]',title);
+  setMeta('meta[property="og:url"]', b ? `${SITE}#/${b.slug}` : SITE);
+  /* active nav: a case study counts as Work */
+  const current = b ? 'work' : anchor;
+  document.querySelectorAll('.barlinks a').forEach(a=>{
+    if(current && a.getAttribute('href')===`#/#${current}`) a.setAttribute('aria-current','true');
+    else a.removeAttribute('aria-current');
+  });
+  const mark = document.querySelector('.mark');
+  if(b) mark.removeAttribute('aria-current'); else mark.setAttribute('aria-current','page');
   reveal();
-  if(anchor){
-    const t = document.getElementById(anchor);
-    if(t){ t.scrollIntoView({behavior:'auto',block:'start'}); return; }
-  }
-  window.scrollTo(0,0);
+  const t = anchor && document.getElementById(anchor);
+  if(t) t.scrollIntoView({behavior:'auto',block:'start'});
+  else window.scrollTo(0,0);
+  return t || app;
 }
 
-window.addEventListener('hashchange',route);
+/* after in-site navigation, move keyboard focus to the new content */
+function focusTarget(el){
+  if(!el.hasAttribute('tabindex')) el.setAttribute('tabindex','-1');
+  el.focus({preventScroll:true});
+}
+window.addEventListener('hashchange',()=>focusTarget(route()));
+document.querySelector('.skip').addEventListener('click',e=>{ e.preventDefault(); focusTarget(app); });
 route();
 </script>
 </body>
